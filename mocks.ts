@@ -1,4 +1,4 @@
-interface WeatherData {
+export interface WeatherData {
     city: string;
     countryCode: string;
     icon: string;
@@ -24,7 +24,7 @@ export const DATA = [
         city: 'Tokyo',
         countryCode: 'JP',
         icon: '☀️',
-        description: '',
+        description: 'Sunny',
         value: 20
     }, {
         city: 'Berlin',
