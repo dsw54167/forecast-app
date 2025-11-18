@@ -1,9 +1,12 @@
 import type {WeatherData} from "../../mocks.ts";
 
-type CityListItemProps = WeatherData;
-export const CityListItem = ({city, countryCode, description, value, icon}: CityListItemProps) => {
+interface CityListItemProps extends WeatherData {
+    onClick: () => void;
+}
 
-    return <div key={city}
+export const CityListItem = ({city, countryCode, description, value, icon, onClick}: CityListItemProps) => {
+
+    return <div key={city} onClick={onClick}
                 className='flex w-96 bg-neutral-600 justify-between px-4 py-2 rounded-md items-center'>
         <div className='flex items-center gap-2'>
             <span className='bg-neutral-400 size-8 flex items-center justify-center rounded-md'>{icon}</span>
