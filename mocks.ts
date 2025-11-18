@@ -9,7 +9,8 @@ export interface WeatherData {
     humidity: number;
     chanceOfPrecipitation: number;
     realTemp: number;
-    wind: { speed: number, direction: string }
+    wind: { speed: number, direction: string };
+    forecast5Days: {icon: string, value: number, date: string}[];
 }
 
 export const DATA = [
@@ -24,7 +25,14 @@ export const DATA = [
         "humidity": 68,
         "chanceOfPrecipitation": 60,
         "realTemp": 10,
-        "wind": {"speed": 5.2, "direction": "NW"}
+        "wind": { "speed": 5.2, "direction": "NW" },
+        "forecast5Days": [
+            { "icon": "🌧️", "value": 11, "date": "19/11" },
+            { "icon": "🌦️", "value": 12, "date": "20/11" },
+            { "icon": "🌧️", "value": 10, "date": "21/11" },
+            { "icon": "☁️", "value": 9,  "date": "22/11" },
+            { "icon": "🌧️", "value": 11, "date": "23/11" }
+        ]
     },
     {
         "city": "New York",
@@ -37,7 +45,14 @@ export const DATA = [
         "humidity": 55,
         "chanceOfPrecipitation": 20,
         "realTemp": 17,
-        "wind": {"speed": 4.8, "direction": "SW"}
+        "wind": { "speed": 4.8, "direction": "SW" },
+        "forecast5Days": [
+            { "icon": "⛅", "value": 17, "date": "19/11" },
+            { "icon": "☀️", "value": 18, "date": "20/11" },
+            { "icon": "🌤️", "value": 17, "date": "21/11" },
+            { "icon": "⛅", "value": 16, "date": "22/11" },
+            { "icon": "☀️", "value": 19, "date": "23/11" }
+        ]
     },
     {
         "city": "Tokyo",
@@ -50,7 +65,14 @@ export const DATA = [
         "humidity": 40,
         "chanceOfPrecipitation": 5,
         "realTemp": 23,
-        "wind": {"speed": 3.0, "direction": "NE"}
+        "wind": { "speed": 3.0, "direction": "NE" },
+        "forecast5Days": [
+            { "icon": "☀️", "value": 22, "date": "19/11" },
+            { "icon": "☀️", "value": 23, "date": "20/11" },
+            { "icon": "🌤️", "value": 21, "date": "21/11" },
+            { "icon": "☀️", "value": 22, "date": "22/11" },
+            { "icon": "☀️", "value": 23, "date": "23/11" }
+        ]
     },
     {
         "city": "Sydney",
@@ -63,7 +85,14 @@ export const DATA = [
         "humidity": 50,
         "chanceOfPrecipitation": 15,
         "realTemp": 27,
-        "wind": {"speed": 6.1, "direction": "SE"}
+        "wind": { "speed": 6.1, "direction": "SE" },
+        "forecast5Days": [
+            { "icon": "🌤️", "value": 27, "date": "19/11" },
+            { "icon": "☀️",  "value": 28, "date": "20/11" },
+            { "icon": "🌤️", "value": 26, "date": "21/11" },
+            { "icon": "⛅",  "value": 25, "date": "22/11" },
+            { "icon": "☀️",  "value": 27, "date": "23/11" }
+        ]
     },
     {
         "city": "Paris",
@@ -76,7 +105,14 @@ export const DATA = [
         "humidity": 82,
         "chanceOfPrecipitation": 10,
         "realTemp": 8,
-        "wind": {"speed": 3.4, "direction": "N"}
+        "wind": { "speed": 3.4, "direction": "N" },
+        "forecast5Days": [
+            { "icon": "🌫️", "value": 8, "date": "19/11" },
+            { "icon": "☁️",  "value": 9, "date": "20/11" },
+            { "icon": "🌫️", "value": 7, "date": "21/11" },
+            { "icon": "☁️",  "value": 8, "date": "22/11" },
+            { "icon": "🌧️", "value": 9, "date": "23/11" }
+        ]
     },
     {
         "city": "Dubai",
@@ -89,7 +125,14 @@ export const DATA = [
         "humidity": 30,
         "chanceOfPrecipitation": 0,
         "realTemp": 36,
-        "wind": {"speed": 2.5, "direction": "W"}
+        "wind": { "speed": 2.5, "direction": "W" },
+        "forecast5Days": [
+            { "icon": "☀️", "value": 35, "date": "19/11" },
+            { "icon": "☀️", "value": 36, "date": "20/11" },
+            { "icon": "☀️", "value": 34, "date": "21/11" },
+            { "icon": "☀️", "value": 35, "date": "22/11" },
+            { "icon": "🌤️", "value": 33, "date": "23/11" }
+        ]
     },
     {
         "city": "Toronto",
@@ -102,7 +145,14 @@ export const DATA = [
         "humidity": 72,
         "chanceOfPrecipitation": 70,
         "realTemp": -5,
-        "wind": {"speed": 7.3, "direction": "NW"}
+        "wind": { "speed": 7.3, "direction": "NW" },
+        "forecast5Days": [
+            { "icon": "❄️", "value": -3, "date": "19/11" },
+            { "icon": "☁️", "value": -2, "date": "20/11" },
+            { "icon": "❄️", "value": -4, "date": "21/11" },
+            { "icon": "❄️", "value": -3, "date": "22/11" },
+            { "icon": "🌨️", "value": -1, "date": "23/11" }
+        ]
     },
     {
         "city": "Rio de Janeiro",
@@ -115,7 +165,14 @@ export const DATA = [
         "humidity": 75,
         "chanceOfPrecipitation": 55,
         "realTemp": 30,
-        "wind": {"speed": 4.0, "direction": "E"}
+        "wind": { "speed": 4.0, "direction": "E" },
+        "forecast5Days": [
+            { "icon": "🌦️", "value": 29, "date": "19/11" },
+            { "icon": "⛈️", "value": 28, "date": "20/11" },
+            { "icon": "🌦️", "value": 27, "date": "21/11" },
+            { "icon": "🌧️", "value": 26, "date": "22/11" },
+            { "icon": "🌦️", "value": 29, "date": "23/11" }
+        ]
     },
     {
         "city": "Cape Town",
@@ -128,7 +185,14 @@ export const DATA = [
         "humidity": 60,
         "chanceOfPrecipitation": 10,
         "realTemp": 19,
-        "wind": {"speed": 9.5, "direction": "SE"}
+        "wind": { "speed": 9.5, "direction": "SE" },
+        "forecast5Days": [
+            { "icon": "🌬️", "value": 20, "date": "19/11" },
+            { "icon": "🌬️", "value": 21, "date": "20/11" },
+            { "icon": "☁️",  "value": 19, "date": "21/11" },
+            { "icon": "🌬️", "value": 18, "date": "22/11" },
+            { "icon": "🌤️", "value": 20, "date": "23/11" }
+        ]
     },
     {
         "city": "Mumbai",
@@ -141,6 +205,13 @@ export const DATA = [
         "humidity": 78,
         "chanceOfPrecipitation": 80,
         "realTemp": 32,
-        "wind": {"speed": 5.7, "direction": "SW"}
+        "wind": { "speed": 5.7, "direction": "SW" },
+        "forecast5Days": [
+            { "icon": "🌩️", "value": 31, "date": "19/11" },
+            { "icon": "🌧️", "value": 32, "date": "20/11" },
+            { "icon": "⛈️", "value": 30, "date": "21/11" },
+            { "icon": "🌩️", "value": 31, "date": "22/11" },
+            { "icon": "⛈️", "value": 29, "date": "23/11" }
+        ]
     }
 ]

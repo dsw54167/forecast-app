@@ -12,7 +12,7 @@ export const CityListItem = ({city, countryCode, description, value, icon, onCli
             <span className='bg-neutral-400 size-8 flex items-center justify-center rounded-md'>{icon}</span>
             <div className='flex flex-col'>
                 <span className='text-lg text-white'>{`${city}, ${countryCode}`}</span>
-                <span className='text-sm text-neutral-300 text-left'>{description}</span>
+                <span className='text-sm text-neutral-300 text-left italic'>{description}</span>
             </div>
         </div>
         <span className='text-sm font-bold text-white'>{value}°C</span>
