@@ -1,5 +1,6 @@
 import type {WeatherData} from "../../mocks.ts";
 import {useSelector} from "react-redux";
+import {convertTemperature} from "./Utils.tsx";
 
 interface CityListItemProps extends WeatherData {
     onClick: () => void;
@@ -11,9 +12,9 @@ export const CityListItem = ({city, countryCode, description, value, icon, onCli
     const favourites = saved ? JSON.parse(saved) : [];
     const isFavourite = city ? favourites.includes(city.toLowerCase()) : false;
     const unit = useSelector((state: {unit: string}) => state.unit);
+    const temperature = convertTemperature(value, unit);
     return <div key={city} onClick={onClick}
                 className='flex w-96 bg-neutral-600 justify-between px-4 py-2 rounded-md items-center'>
-        <p>{unit}</p>
         <div className='flex items-center gap-2'>
             <span className='bg-neutral-400 size-8 flex items-center justify-center rounded-md'>{icon}</span>
             <div className='flex flex-col'>
@@ -21,7 +22,7 @@ export const CityListItem = ({city, countryCode, description, value, icon, onCli
                 <span className='text-sm text-neutral-300 text-left italic'>{description}</span>
             </div>
         </div>
-        <span className='text-sm font-bold text-white'>{isFavourite ? '❤️' : ''} {value}°C</span>
+        <span className='text-sm font-bold text-white'>{isFavourite ? '❤️' : ''}{temperature}  </span>
     </div>
 
 }

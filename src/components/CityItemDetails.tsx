@@ -2,6 +2,7 @@ import {DATA, type WeatherData} from "../../mocks.ts";
 import {useNavigate, useParams} from "react-router";
 import {useState} from "react";
 import {useSelector} from "react-redux";
+import {convertTemperature} from "./Utils.tsx";
 
 export function CityItemDetails() {
     const {city} = useParams();
@@ -39,11 +40,12 @@ export function CityItemDetails() {
         No city provided
     </div>;
     const unit = useSelector((state: {unit: string}) => state.unit);
-
     const data: WeatherData = DATA.find((item) => item.city.toLowerCase() == city.toLowerCase())!
     if (!data) return <div>
         <span className='top-0 left-0 size-16'>←</span>
         No data found</div>;
+
+    const temperature = convertTemperature(data.value,unit)
     return (
         <div className='flex flex-col bg-neutral-600 rounded-md px-2 text-white'>
             <div className='flex justify-between items-start'>
@@ -51,7 +53,7 @@ export function CityItemDetails() {
                 <p className='text-3xl' onClick={addRemoveFavourite}>  {isFavourite ? '♥' : '♡'}</p>
             </div>
             <span className='text-lg '>{`${data.city}, ${data.countryCode}`}</span>
-            <span className='text-lg '>{data.value} {unit}</span>
+            <span className='text-lg '>{temperature}</span>
             <span className='text-sm text-neutral-300 italic'>{`${data.icon} ${data.description}`}</span>
             <div className="h-8"></div>
             <div className="grid grid-cols-2  text-xs text-left text-neutral-300">
@@ -86,7 +88,7 @@ export function CityItemDetails() {
                     <div key={index} className="border rounded-md px-2 bg-neutral-500 gap-24">
                         <div className="font-semibold">{`${forecast.date}`}</div>
                         <div className="font-semibold text-center">{`${forecast.icon}`}</div>
-                        <div className="font-semibold text-center">{`${forecast.value}`}</div>
+                        <div className="font-semibold text-center">{convertTemperature(forecast.value,unit)}</div>
                     </div>
                 ))}
             </div>

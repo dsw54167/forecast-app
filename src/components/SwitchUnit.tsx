@@ -13,8 +13,8 @@ export default function UnitSwitcher() {
                 <input
                     type="radio"
                     name="unit"
-                    value="celsius"
-                    checked={unit === "celsius"}
+                    value="°C"
+                    checked={unit === "°C"}
                     onChange={handleChange}
                 />
                 °C
@@ -24,8 +24,8 @@ export default function UnitSwitcher() {
                 <input
                     type="radio"
                     name="unit"
-                    value="fahrenheit"
-                    checked={unit === "fahrenheit"}
+                    value="°F"
+                    checked={unit === "°F"}
                     onChange={handleChange}
                 />
                 °F
@@ -35,8 +35,8 @@ export default function UnitSwitcher() {
                 <input
                     type="radio"
                     name="unit"
-                    value="kelvin"
-                    checked={unit === "kelvin"}
+                    value="K"
+                    checked={unit === "K"}
                     onChange={handleChange}
                 />
                 K
