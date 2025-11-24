@@ -22,7 +22,7 @@ export function CityList(){
     const filteredList = DATA.filter((item) => item.city.toLowerCase().startsWith(query.toLowerCase()))
     return (
         <div className='flex gap-4 flex-col'>
-            <button onClick={()=>handleFavouritesClick()}>favourites</button>
+            <button onClick={()=>handleFavouritesClick()}>show favourites</button>
             <input  value={query} onChange={(e) => setQuery(e.target.value)} placeholder='Search for a city'
                    className='border-neutral-100 bg-neutral-100 rounded-md px-2'/>
             {filteredList.map((item) =>

@@ -1,6 +1,7 @@
 import {DATA, type WeatherData} from "../../mocks.ts";
 import {useNavigate, useParams} from "react-router";
 import {useState} from "react";
+import {useSelector} from "react-redux";
 
 export function CityItemDetails() {
     const {city} = useParams();
@@ -37,6 +38,7 @@ export function CityItemDetails() {
         <span className='top-0 left-0 size-16'>←</span>
         No city provided
     </div>;
+    const unit = useSelector((state: {unit: string}) => state.unit);
 
     const data: WeatherData = DATA.find((item) => item.city.toLowerCase() == city.toLowerCase())!
     if (!data) return <div>
@@ -49,7 +51,7 @@ export function CityItemDetails() {
                 <p className='text-3xl' onClick={addRemoveFavourite}>  {isFavourite ? '♥' : '♡'}</p>
             </div>
             <span className='text-lg '>{`${data.city}, ${data.countryCode}`}</span>
-            <span className='text-lg '>{data.value}</span>
+            <span className='text-lg '>{data.value} {unit}</span>
             <span className='text-sm text-neutral-300 italic'>{`${data.icon} ${data.description}`}</span>
             <div className="h-8"></div>
             <div className="grid grid-cols-2  text-xs text-left text-neutral-300">
