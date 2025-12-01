@@ -1,7 +1,6 @@
 import {useSelector} from "react-redux";
 
 export function convertTemperature(celciusValue: number, to: string) {
-    const unit = useSelector((state) => state.unit);
 
     let finalValue;
     switch (to) {
@@ -17,5 +16,5 @@ export function convertTemperature(celciusValue: number, to: string) {
         default:
             finalValue = celciusValue;
     }
-    return finalValue + ' ' + unit;
+    return finalValue;
 }

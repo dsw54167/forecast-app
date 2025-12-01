@@ -8,7 +8,7 @@ export default function UnitSwitcher() {
         dispatch(getUnit(e.target.value));
     };
     return (
-        <div>
+        <div className='text-left'>
             <label>
                 <input
                     type="radio"

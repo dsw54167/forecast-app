@@ -12,17 +12,18 @@ export const CityListItem = ({city, countryCode, description, value, icon, onCli
     const favourites = saved ? JSON.parse(saved) : [];
     const isFavourite = city ? favourites.includes(city.toLowerCase()) : false;
     const unit = useSelector((state: {unit: string}) => state.unit);
-    const temperature = convertTemperature(value, unit);
     return <div key={city} onClick={onClick}
                 className='flex w-96 bg-neutral-600 justify-between px-4 py-2 rounded-md items-center'>
         <div className='flex items-center gap-2'>
-            <span className='bg-neutral-400 size-8 flex items-center justify-center rounded-md'>{icon}</span>
+            <img src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
+                 alt="icon"
+                 className='w-10 h-auto mx-auto'/>
             <div className='flex flex-col'>
                 <span className='text-lg text-white'>{`${city}, ${countryCode}`}</span>
                 <span className='text-sm text-neutral-300 text-left italic'>{description}</span>
             </div>
         </div>
-        <span className='text-sm font-bold text-white'>{isFavourite ? '❤️' : ''}{temperature}  </span>
+        <span className='text-sm font-bold text-white'>{isFavourite ? '❤️' : ''} {value}{unit}  </span>
     </div>
 
 }
