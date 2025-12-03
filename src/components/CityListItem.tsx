@@ -1,5 +1,6 @@
 import type {WeatherData} from "../../mocks.ts";
 import {useSelector} from "react-redux";
+import {Temperature} from "./Temperature";
 
 interface CityListItemProps extends WeatherData {
     onClick: () => void;
