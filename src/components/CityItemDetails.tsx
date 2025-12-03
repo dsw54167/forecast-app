@@ -48,8 +48,10 @@ export function CityItemDetails() {
         };
 
         fetchData();
-    });
-
+    }, {});
+    if (!detailedCityForecast) {
+        return <div>Loading..</div>;
+    }
     return (
         <div className='flex flex-col bg-neutral-600 rounded-md px-2 text-white'>
             <div className='flex justify-between items-start'>
