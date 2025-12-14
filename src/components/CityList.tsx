@@ -32,7 +32,7 @@ export function CityList() {
                 const weatherDataResults : WeatherData[] = await Promise.all(promises);
                 setForecastDataList(weatherDataResults);
             } catch (error) {
-                console.error('Error fetching Warsaw data:', error);
+                console.error('Error fetching data:', error);
             }
         };
 

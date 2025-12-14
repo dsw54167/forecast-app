@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 export interface WeatherData {
     city: string;
     countryCode: string;
@@ -14,28 +13,6 @@ export interface WeatherData {
     realTemp: number;
     wind: { speed: number; direction: string };
     forecast5Days: Array<{ icon: string; value: number; date: string }>;
-}
-
-function getWeatherIcon(weatherMain: string): string {
-    const iconMap: { [key: string]: string } = {
-        'Clear': '☀️',
-        'Clouds': '☁️',
-        'Rain': '🌧️',
-        'Drizzle': '🌦️',
-        'Thunderstorm': '⛈️',
-        'Snow': '❄️',
-        'Mist': '🌫️',
-        'Fog': '🌫️',
-        'Haze': '🌫️'
-    };
-
-    return iconMap[weatherMain] || '🌤️';
-}
-
-function getWindDirection(degrees: number): string {
-    const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-    const index = Math.round(degrees / 22.5) % 16;
-    return directions[index];
 }
 
 function formatTime(timestamp: number): string {
@@ -52,9 +29,8 @@ function mapApiResponseToWeatherData(apiResponse: any): WeatherData {
     const current = apiResponse.list[0];
     const city = apiResponse.city;
 
-    // Get 5-day forecast (one entry per day at noon)
     const forecast5Days = apiResponse.list
-        .filter((_: any, index: number) => index % 8 === 0) // Every 8th entry (24h/3h = 8)
+        .filter((_: any, index: number) => index % 8 === 0)
         .slice(0, 5)
         .map((item: any) => ({
             icon: item.weather[0].icon,
